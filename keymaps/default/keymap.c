@@ -108,25 +108,27 @@ _______, _______, _______,         _______, _______, _______,                   
 
 
 //Light up LEDS 51 to 69 in corresponding color when respective layer is active
-const rgblight_segment_t PROGMEM _RGB_BASE[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_OFF});
-const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_BLUE});
-const rgblight_segment_t PROGMEM _RGB_RED[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_RED});
-const rgblight_segment_t PROGMEM _RGB_GREEN[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_GREEN});
-const rgblight_segment_t PROGMEM _RGB_YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_YELLOW});
-const rgblight_segment_t PROGMEM _RGB_WHITE[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_WHITE});
+const rgblight_segment_t PROGMEM _RGB_BASE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
+const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_BLUE});
+const rgblight_segment_t PROGMEM _RGB_RED[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_RED});
+const rgblight_segment_t PROGMEM _RGB_GREEN[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_GREEN});
+const rgblight_segment_t PROGMEM _RGB_YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_YELLOW});
+const rgblight_segment_t PROGMEM _RGB_WHITE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_WHITE});
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    _RGB_BASE,     // Base layer
-    _RGB_BLUE,     // Overrides base layer
-    _RGB_RED,      // Overrides other layers
-    _RGB_GREEN,    // Overrides other layers
-    _RGB_YELLOW,   // Overrides other layers
-    _RGB_WHITE     // Overrides other layers
+    _RGB_BASE,     // 0 - Base layer
+    _RGB_BLUE,     // 1 - Overrides base layer
+    _RGB_RED,      // 2 - Overrides other layers
+    _RGB_GREEN,    // 3 - Overrides other layers
+    _RGB_YELLOW,   // 4 - Overrides other layers
+    _RGB_WHITE     // 5 - Overrides other layers
 );
 
 void keyboard_post_init_user(void) {
     rgblight_layers = my_rgb_layers;     // Enable the LED layers
+    rgblight_enable(); //Enables RGB on boot
+    rgblight_sethsv(HSV_OFF); //Turns off LEDS on boot
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
@@ -143,3 +145,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(5, layer_state_cmp(state, _WHITE));
 return state;
 }
+
+
+
