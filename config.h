@@ -53,15 +53,15 @@
 
 #define MATRIX_ROW_PINS             \
     {                               \
-            LINE_PIN9, /* ROW_1 */  \
-            LINE_PIN8, /* ROW_2 */  \
-            LINE_PIN7, /* ROW_3 */  \
-            LINE_PIN6, /* ROW_4 */  \
+            LINE_PIN1, /* ROW_1 */  \
+            LINE_PIN2, /* ROW_2 */  \
+            LINE_PIN3, /* ROW_3 */  \
+            LINE_PIN4, /* ROW_4 */  \
             LINE_PIN5, /* ROW_5 */  \
-            LINE_PIN4, /* ROW_6 */  \
-            LINE_PIN3, /* ROW_7 */  \
-            LINE_PIN2, /* ROW_8 */  \
-            LINE_PIN1  /* ROW_9 */  \
+            LINE_PIN6, /* ROW_6 */  \
+            LINE_PIN7, /* ROW_7 */  \
+            LINE_PIN8, /* ROW_8 */  \
+            LINE_PIN9  /* ROW_9 */  \
     }
 
 #define MATRIX_COL_PINS             \
@@ -95,7 +95,7 @@
 
 
 /* COL2ROW or ROW2COL */
-#define DIODE_DIRECTION ROW2COL
+#define DIODE_DIRECTION COL2ROW
 
 /* Set 0 if debouncing isn't needed */
 /* Well-worn Cherry MX key switches can bounce for up to 20ms, despite the
@@ -117,18 +117,16 @@
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
-
-#ifdef RGB_DI_PIN
-
 #define RGB_DI_PIN LINE_PIN0
 #define RGBLED_NUM 69
+#define NOP_FUDGE 0.4
 #define RGBLIGHT_SLEEP //If defined, the RGB lighting will be switched off when the host goes to sleep
 #define RGBLIGHT_LAYERS_RETAIN_VAL //Allows RGB Layer brightness  to be bound to regular RGB brightness
 
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_LIMIT_VAL 200
+#define RGBLIGHT_LIMIT_VAL 10
 #define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_CHRISTMAS
@@ -142,7 +140,5 @@
 
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_MAX_LAYERS 8
-
-#endif
 
 #endif

@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-
+#include "rgblight.h"
     /*
     *         A   B   C      D   E   F   G   H   I   J   K   L   M   N   O   P   Q   R       S   T   U      V   W   X   Y  
     *       ┌───┬───┬───┬──┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬──┬───┬───┬───┬──┬───┬───┬───┬───┐
@@ -107,21 +107,21 @@ _______, _______, _______,         _______, _______, _______,                   
 
 
 
-//Light up LEDS 61 to 69 in corresponding color when respective layer is active
-const rgblight_segment_t PROGMEM _BASE[] = RGBLIGHT_LAYER_SEGMENTS({61,69, HSV_OFF});
-const rgblight_segment_t PROGMEM _BLUE[] = RGBLIGHT_LAYER_SEGMENTS({61,69, HSV_BLUE});
-const rgblight_segment_t PROGMEM _RED[] = RGBLIGHT_LAYER_SEGMENTS({61,69, HSV_RED});
-const rgblight_segment_t PROGMEM _GREEN[] = RGBLIGHT_LAYER_SEGMENTS({61,69, HSV_GREEN});
-const rgblight_segment_t PROGMEM _YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({61,69, HSV_YELLOW});
-const rgblight_segment_t PROGMEM _WHITE[] = RGBLIGHT_LAYER_SEGMENTS({61,69, HSV_WHITE});
+//Light up LEDS 51 to 69 in corresponding color when respective layer is active
+const rgblight_segment_t PROGMEM _RGB_BASE[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_OFF});
+const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_BLUE});
+const rgblight_segment_t PROGMEM _RGB_RED[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_RED});
+const rgblight_segment_t PROGMEM _RGB_GREEN[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_GREEN});
+const rgblight_segment_t PROGMEM _RGB_YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_YELLOW});
+const rgblight_segment_t PROGMEM _RGB_WHITE[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_WHITE});
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    _BLUE,     // Overrides base layer
-    _RED,      // Overrides other layers
-    _GREEN,    // Overrides other layers
-    _YELLOW,   // Overrides other layers
-    _WHITE     // Overrides other layers
+    _RGB_BLUE,     // Overrides base layer
+    _RGB_RED,      // Overrides other layers
+    _RGB_GREEN,    // Overrides other layers
+    _RGB_YELLOW,   // Overrides other layers
+    _RGB_WHITE     // Overrides other layers
 );
 
 void keyboard_post_init_user(void) {
