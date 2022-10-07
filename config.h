@@ -121,12 +121,14 @@
 #define RGBLED_NUM 69
 #define NOP_FUDGE 0.4
 #define RGBLIGHT_SLEEP //If defined, the RGB lighting will be switched off when the host goes to sleep
-#define RGBLIGHT_LAYERS_RETAIN_VAL //Allows RGB Layer brightness  to be bound to regular RGB brightness
 
+#define RGBLIGHT_DEFAULT_MODE //Default is RGBLIGHT_MODE_STATIC_LIGHT
+#define RGBLIGHT_DEFAULT_HUE 169 //Blue
+#define RGBLIGHT_DEFAULT_VAL 10 //10 of 255 default
+#define RGBLIGHT_DEFAULT_SPD 50 //50 of 255 default
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_LIMIT_VAL 10
 #define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_CHRISTMAS
@@ -140,5 +142,7 @@
 
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_MAX_LAYERS 8
+#define RGBLIGHT_LAYERS_RETAIN_VAL //Allows RGB Layer brightness  to be bound to regular RGB brightness
+#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF //Allows RGB Layers to work even when the RGB lighting is otherwise off
 
 #endif

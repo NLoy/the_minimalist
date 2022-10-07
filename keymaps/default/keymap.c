@@ -108,15 +108,16 @@ _______, _______, _______,         _______, _______, _______,                   
 
 
 //Light up LEDS 51 to 69 in corresponding color when respective layer is active
-const rgblight_segment_t PROGMEM _RGB_BASE[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_OFF});
-const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_BLUE});
-const rgblight_segment_t PROGMEM _RGB_RED[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_RED});
-const rgblight_segment_t PROGMEM _RGB_GREEN[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_GREEN});
-const rgblight_segment_t PROGMEM _RGB_YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_YELLOW});
-const rgblight_segment_t PROGMEM _RGB_WHITE[] = RGBLIGHT_LAYER_SEGMENTS({51,69, HSV_WHITE});
+const rgblight_segment_t PROGMEM _RGB_BASE[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_OFF});
+const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_BLUE});
+const rgblight_segment_t PROGMEM _RGB_RED[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_RED});
+const rgblight_segment_t PROGMEM _RGB_GREEN[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_GREEN});
+const rgblight_segment_t PROGMEM _RGB_YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_YELLOW});
+const rgblight_segment_t PROGMEM _RGB_WHITE[] = RGBLIGHT_LAYER_SEGMENTS({51, 19, HSV_WHITE});
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    _RGB_BASE,     // Base layer
     _RGB_BLUE,     // Overrides base layer
     _RGB_RED,      // Overrides other layers
     _RGB_GREEN,    // Overrides other layers
@@ -125,21 +126,20 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 );
 
 void keyboard_post_init_user(void) {
-    // Enable the LED layers
-    rgblight_layers = my_rgb_layers;
+    rgblight_layers = my_rgb_layers;     // Enable the LED layers
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(1, layer_state_cmp(state, _BASE));
+    rgblight_set_layer_state(0, layer_state_cmp(state, _BASE));    // Activate the _RGB_BASE layer on active base layer
     return state;
 }
 
-// Activate the rgb layer according to the active keyboard layer
+// Activate the respective rgb layer according to the active keyboard layer
 layer_state_t layer_state_set_user(layer_state_t state) {
-rgblight_set_layer_state(1, layer_state_cmp(state, _BLUE));
-rgblight_set_layer_state(2, layer_state_cmp(state, _RED));
-rgblight_set_layer_state(3, layer_state_cmp(state, _GREEN));
-rgblight_set_layer_state(4, layer_state_cmp(state, _YELLOW));
-rgblight_set_layer_state(5, layer_state_cmp(state, _WHITE));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _BLUE));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _RED));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _GREEN));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _YELLOW));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _WHITE));
 return state;
 }
