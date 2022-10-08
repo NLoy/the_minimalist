@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include "rgblight.h"
+//#include "rgblight.h"
     /*
     *         A   B   C      D   E   F   G   H   I   J   K   L   M   N   O   P   Q   R       S   T   U      V   W   X   Y  
     *       ┌───┬───┬───┬──┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬──┬───┬───┬───┬──┬───┬───┬───┬───┐
@@ -29,7 +29,7 @@
     */
 
 enum layer_names {
-    _BASE, // Default Layer
+    _BASE, // Base Layer
     _BLUE, // Blue Layer
     _RED, // Red Layer
     _GREEN, // Green Layer
@@ -39,7 +39,7 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT( /* Base Layer */
-    KC_1,    KC_B,    KC_C,            KC_D,    KC_E,    KC_F,    KC_G,    KC_H,    KC_I,    KC_J,    KC_K,    KC_L,    KC_M,    KC_N,    KC_O,    KC_P,    KC_Q,    KC_R,            KC_S,    KC_T,    KC_U,            KC_V,    KC_W,    KC_X,    KC_Y,
+    RGB_M_SN,    KC_B,    KC_C,            KC_D,    KC_E,    KC_F,    KC_G,    KC_H,    KC_I,    KC_J,    KC_K,    KC_L,    KC_M,    KC_N,    KC_O,    KC_P,    KC_Q,    KC_R,            KC_S,    KC_T,    KC_U,            KC_V,    KC_W,    KC_X,    KC_Y,
     KC_2,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   RESET,
     KC_3,   KC_NO,   KC_NO,           KC_NO,  KC_END,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   MO(1),
     KC_4,   KC_NO,   KC_NO,          KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,   KC_NO,   KC_NO,         KC_PSCR, KC_SLCK, KC_PAUS,           KC_NO,   KC_NO,   KC_NO,   KC_NO,
@@ -106,14 +106,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 _______, _______, _______,         _______, _______, _______,                            _______,                            _______, _______, _______,          _______,         _______, _______, _______,         _______,          _______)};
 
 
-
-//Light up LEDS 51 to 69 in corresponding color when respective layer is active
+/*
+//Light up LEDS 50 to 68 in corresponding color when respective layer is active
 const rgblight_segment_t PROGMEM _RGB_BASE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
-const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_BLUE});
-const rgblight_segment_t PROGMEM _RGB_RED[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_RED});
-const rgblight_segment_t PROGMEM _RGB_GREEN[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_GREEN});
-const rgblight_segment_t PROGMEM _RGB_YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_YELLOW});
-const rgblight_segment_t PROGMEM _RGB_WHITE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_WHITE});
+const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
+const rgblight_segment_t PROGMEM _RGB_RED[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
+const rgblight_segment_t PROGMEM _RGB_GREEN[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
+const rgblight_segment_t PROGMEM _RGB_YELLOW[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
+const rgblight_segment_t PROGMEM _RGB_WHITE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -127,8 +127,8 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 
 void keyboard_post_init_user(void) {
     rgblight_layers = my_rgb_layers;     // Enable the LED layers
-    rgblight_enable(); //Enables RGB on boot
-    rgblight_sethsv(HSV_OFF); //Turns off LEDS on boot
+//    rgblight_enable(); //Enables RGB on boot
+//    rgblight_sethsv(HSV_OFF); //Turns off LEDS on boot
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
@@ -148,3 +148,4 @@ return state;
 
 
 
+*/
