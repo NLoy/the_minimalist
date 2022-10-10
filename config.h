@@ -123,9 +123,9 @@
 #define RGBLIGHT_SLEEP //If defined, the RGB lighting will be switched off when the host goes to sleep
 
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_LIGHT //Default is RGBLIGHT_MODE_STATIC_LIGHT
-#define RGBLIGHT_DEFAULT_HUE 169 //Blue
-#define RGBLIGHT_DEFAULT_VAL 10 //10 of 255 default
-#define RGBLIGHT_DEFAULT_SPD 50 //50 of 255 default
+#define RGBLIGHT_DEFAULT_HUE 0 //Blue
+#define RGBLIGHT_DEFAULT_VAL 100 //100 of 255 default
+#define RGBLIGHT_DEFAULT_SPD 100 //100 of 255 default
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8

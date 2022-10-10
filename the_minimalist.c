@@ -21,9 +21,10 @@
 void matrix_init_kb(void) {
     matrix_init_user();
 
-    // Turn on the Teensy 4.x Power LED:
+    // Turn on the Teensy 4.x Power LED, Then back off:
     setPinOutput(LED_POWER);
     writePinHigh(LED_POWER);
+    writePinLow(LED_POWER);
 }
 
 // delay_inline sleeps for |cycles| (e.g. sleeping for F_CPU will sleep 1s).
