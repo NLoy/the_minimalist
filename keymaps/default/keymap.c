@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,         _______, _______, _______,                            _______,                            _______, _______, _______,          _______,         _______, _______, _______,         _______,          _______)};
 
 
-/*
+
 //Light up LEDS 50 to 68 in corresponding color when respective layer is active
 const rgblight_segment_t PROGMEM _RGB_BASE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
 const rgblight_segment_t PROGMEM _RGB_BLUE[] = RGBLIGHT_LAYER_SEGMENTS({50, 19, HSV_OFF});
@@ -145,7 +145,3 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(5, layer_state_cmp(state, _WHI));
 return state;
 }
-
-
-
-*/
