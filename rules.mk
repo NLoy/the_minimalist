@@ -12,18 +12,13 @@ DEBOUNCE_TYPE = sym_eager_pk
 
 FIRMWARE_FORMAT = hex
 
-
-
-
-
-
 # Bootloader selection
 BOOTLOADER = halfkay
 
 # Build Options
-#   change yes to no to disable
+# change yes to no to disable
 #
-RGBLIGHT_ENABLE = yes       # Enable LED strips
+RGBLIGHT_ENABLE = no       # Enable LED strips
 BOOTMAGIC_ENABLE = yes      # Enable Bootmagic Lite
 MOUSEKEY_ENABLE = yes       # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
