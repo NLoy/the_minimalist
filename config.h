@@ -9,6 +9,7 @@
  */
 
 /* disable debug print */
+
 //#define NO_DEBUG
 
 /* disable print */
@@ -18,7 +19,6 @@
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
-
 
 
 
@@ -117,32 +117,38 @@
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
+#define TAPPING_TERM 60
+#define MOUSEKEY_MOVE_DELTA 2
+#define MOUSEKEY_MAX_SPEED 4
+#define MOUSEKEY_INITIAL_SPEED 20
+
 #define RGB_DI_PIN LINE_PIN0
 #define RGBLED_NUM 69
-#define NOP_FUDGE 0.4
+#define NOP_FUDGE 1 //Doesn't need a fudge factor, but is required to compile, so just keep at 1
 #define RGBLIGHT_SLEEP //If defined, the RGB lighting will be switched off when the host goes to sleep
 
-#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_LIGHT //Default is RGBLIGHT_MODE_STATIC_LIGHT
-#define RGBLIGHT_DEFAULT_HUE 0 //Blue
-#define RGBLIGHT_DEFAULT_VAL 100 //100 of 255 default
-#define RGBLIGHT_DEFAULT_SPD 100 //100 of 255 default
-#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL //Default is RGBLIGHT_MODE_RAINBOW_SWIRL 5
+#define RGBLIGHT_DEFAULT_HUE 160 //Blue
+#define RGBLIGHT_DEFAULT_VAL 200 //100 of 255 default
+#define RGBLIGHT_DEFAULT_SAT 200 //100 of 255 default
+#define RGBLIGHT_DEFAULT_SPD 200 //100 of 255 default
+#define RGBLIGHT_HUE_STEP 18
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_EFFECT_ALTERNATING
+//#define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_EFFECT_BREATHING
-#define RGBLIGHT_EFFECT_CHRISTMAS
-#define RGBLIGHT_EFFECT_KNIGHT
-#define RGBLIGHT_EFFECT_RAINBOW_MOODR
+//#define RGBLIGHT_EFFECT_CHRISTMAS
+//#define RGBLIGHT_EFFECT_KNIGHT
+//#define RGBLIGHT_EFFECT_RAINBOW_MOODR
 #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#define RGBLIGHT_EFFECT_RGB TEST
-#define RGBLIGHT_EFFECT_SNAKE
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#define RGBLIGHT_EFFECT_TWINKLE
+//#define RGBLIGHT_EFFECT_RGB TEST
+//#define RGBLIGHT_EFFECT_SNAKE
+//#define RGBLIGHT_EFFECT_STATIC_GRADIENT
+//#define RGBLIGHT_EFFECT_TWINKLE
 
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_MAX_LAYERS 8
-#define RGBLIGHT_LAYERS_RETAIN_VAL //Allows RGB Layer brightness  to be bound to regular RGB brightness
+//#define RGBLIGHT_LAYERS_RETAIN_VAL //Allows RGB Layer brightness  to be bound to regular RGB brightness
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF //Allows RGB Layers to work even when the RGB lighting is otherwise off
 
 #endif
