@@ -12,20 +12,20 @@
     *        ├───┬───┬───┐  ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐  ┌───┬───┬───┐  ┌───┬───┬───┬───┤
     * 4      │4A │ B │ C │  │DEL│F1 │F2 │F3 │F4 │F5 │F6 │F7 │F8 │F9 │F10│F11│F12│ Q │ R │  │PRT│SLK│PAU│  │ V │ W │ X │ Y │
     *        ├───┴───┴───┘  └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘  └───┴───┴───┘  └───┴───┴───┴───┤
-    *        │  68─67──66──65─64──63──62─61──60──59─58──57──56─55──54──53─52──51──50─49──48──47─46──45──44─43──42──41─40  │    === (29) WS12B LEDS INSET
+    *        │ 68──67──66──65─64──63──62─61──60──59─58──57──56─55──54──53─52──51──50─49──48──47─46──45──44─43──42──41──40 │    === (29) WS12B LEDS INSET
     *        └────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
     *        ┌───┬───┬───┬──┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┬──┬───┬───┬───┬──┬───┬───┬───┬───┐
-    * 5   0  │5A │ B │ C │  │ESC│ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ - │ = │  BSPC │  │INS│HOM│PGU│  │NLK│ / │ * │ - │ 38
-    *     |  ├───┼───┼───┤  ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤  ├───┼───┼───┤  ├───┼───┼───┼───┤ |
-    * 6   1  │6A │ B │ C │  │ TAB │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │ [ │ ] │  \  │  │DEL│END│PGD│  │ 7 │ 8 │ 9 │   │ 37
-    *     |  ├───┼───┼───┤  ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤  ├───┼───┼───┤  ├───┼───┼───┤ + │ |
-    * 7   2  │7A │ B │ C │  │ CAPS │ A │ S │ D │ F │ G │ H │ J │ K │ L │ ; │ ' │  ENTER │  │ S │ T │ U │  │ 4 │ 5 │ 6 │   │ 36
-    *     |  ├───┼───┼───┤  ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤  ├───┼───┼───┤  ├───┼───┼───┼───┤ |
-    * 8   3  │8A │ B │ C │  │ LSHFT  │ Z │ X │ C │ V │ B │ N │ M │ , │ . │ / │   RSHFT  │  │ S │UP │ U │  │ 1 │ 2 │ 3 │   │ 35
-    *     |  ├───┼───┼───┤  ├────┬───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤  ├───┼───┼───┤  ├───┴───┼───┤ENT│ |
-    * 9   4  │9A │ B │ C │  │CTRL│WIN │ALT │          SPACE         │ALT │WIN │MENU│CTRL│  │LT │DN │RT │  │   0   │ . │   │ 34
-    *      \ └───┴───┴───┴──┴────┴────┴────┴────────────────────────┴────┴────┴────┴────┴──┴───┴───┴───┴──┴───────┴───┴───┘ /
-    *        5───6──7──8──9──10──11──12──13──14──15──16──17──18──19──20──21──22──23──24──25──26──27──28──29──30──31──32───33   === (38) WS12B LEDS UNDER
+    * 5   0  │5A │ B │ C │  │ESC│ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ - │ = │  BSPC │  │INS│HOM│PGU│  │NLK│ / │ * │ - │  39
+    *     |  ├───┼───┼───┤  ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤  ├───┼───┼───┤  ├───┼───┼───┼───┤   |
+    * 6   1  │6A │ B │ C │  │ TAB │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │ [ │ ] │  \  │  │DEL│END│PGD│  │ 7 │ 8 │ 9 │   │  38
+    *     |  ├───┼───┼───┤  ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤  ├───┼───┼───┤  ├───┼───┼───┤ + │   |
+    * 7   2  │7A │ B │ C │  │ CAPS │ A │ S │ D │ F │ G │ H │ J │ K │ L │ ; │ ' │  ENTER │  │ S │ T │ U │  │ 4 │ 5 │ 6 │   │  37
+    *     |  ├───┼───┼───┤  ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤  ├───┼───┼───┤  ├───┼───┼───┼───┤   |
+    * 8   3  │8A │ B │ C │  │ LSHFT  │ Z │ X │ C │ V │ B │ N │ M │ , │ . │ / │   RSHFT  │  │ S │UP │ U │  │ 1 │ 2 │ 3 │   │  36
+    *     |  ├───┼───┼───┤  ├────┬───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤  ├───┼───┼───┤  ├───┴───┼───┤ENT│   |
+    * 9   4  │9A │ B │ C │  │CTRL│WIN │ALT │          SPACE         │ALT │WIN │MENU│CTRL│  │LT │DN │RT │  │   0   │ . │   │  35
+    *     |  └───┴───┴───┴──┴────┴────┴────┴────────────────────────┴────┴────┴────┴────┴──┴───┴───┴───┴──┴───────┴───┴───┘   |
+    *     5───6───7──8──9──10──11──12──13──14──15──16──17──18──19──20──21──22──23──24──25──26──27──28──29──30──31──32───33───34   === (38) WS12B LEDS UNDER
     */
 
 
@@ -117,7 +117,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break;
-        
+
     case _ENDPNT:
         if (record->event.pressed) {
             SEND_STRING_DELAY("END\n", 20);
@@ -125,7 +125,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break;
-        
+
     case _MIDPNT:
         if (record->event.pressed) {
             SEND_STRING_DELAY("MID\n", 20);
@@ -133,7 +133,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break;
-        
+
     case _CENPNT:
         if (record->event.pressed) {
             SEND_STRING_DELAY("CEN\n", 20);
@@ -141,7 +141,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break;
-        
+
     case _GCENPT:
         if (record->event.pressed) {
             SEND_STRING_DELAY("GCEN\n", 20);
@@ -157,7 +157,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break;
-        
+
     case _PERPNT:
         if (record->event.pressed) {
             SEND_STRING_DELAY("PER\n", 20);
@@ -165,7 +165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break;
-               
+
     case _ACADFT:
         if (record->event.pressed) {
             SEND_STRING_DELAY("\'-", 20);
@@ -173,7 +173,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break; 
-                       
+
     case _3DMU:
         if (record->event.pressed) {
             register_code(KC_LSFT);
@@ -186,7 +186,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             unregister_code(KC_LSFT);
         }
         break; 
-        
+
     case _3DMD:
         if (record->event.pressed) {
             register_code(KC_LSFT);
@@ -199,7 +199,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             unregister_code(KC_LSFT);
         }
         break;
-        
+
     case _3DML:
         if (record->event.pressed) {
             register_code(KC_LSFT);
@@ -212,7 +212,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             unregister_code(KC_LSFT);
         }
         break;
-        
+
     case _3DMR:
         if (record->event.pressed) {
             register_code(KC_LSFT);
@@ -231,7 +231,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 };
 
 //SHORTENING LONGER KEYCODES INTO 8 CHARACTER ONES TO ALLOW FOR A CLEANER KEYMAP
-#define B_ISOOBJ LT(_BLU,_ISOOBJ)
 #define B_ENT LT(_BLU, KC_ENT)
 #define ACAD_QUO RSFT(KC_QUOT)
 
@@ -255,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_6,   KC_NO,   KC_NO,          KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC, KC_RBRC,          KC_BSLS,          KC_DEL,  KC_END, KC_PGDN,           KC_P7,   KC_P8,   KC_P9, KC_PPLS,
    _PSEL,   KC_NO,   KC_NO,         KC_CAPS,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,  KC_ENT,                          MO(_YEL),MO(_GRN),MO(_RED),           KC_P4,   KC_P5,   KC_P6,
  _SENFRO, _SENBAC, _TXTFRO,         KC_LSFT,             KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,                          MO(_WHI),   KC_UP,MO(_BLU),           KC_P1,   KC_P2,   KC_P3,   B_ENT,
-B_ISOOBJ, _HIDOBJ, _UNIOBJ,         KC_LCTL, KC_LGUI, KC_LALT,                             KC_SPC,                            KC_RALT, KC_RGUI,  KC_APP,          KC_RCTL,         KC_LEFT, KC_DOWN, KC_RGHT,           KC_P0,          KC_PDOT),
+ _ISOOBJ, _HIDOBJ,_UNIOBJ,         KC_LCTL, KC_LGUI, KC_LALT,                             KC_SPC,                            KC_RALT, KC_RGUI,  KC_APP,          KC_RCTL,         KC_LEFT, KC_DOWN, KC_RGHT,           KC_P0,          KC_PDOT),
 
 [_BLU] = LAYOUT( /* Blue Layer */
  QK_BOOT, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         RGB_TOG,RGB_RMOD, RGB_MOD, RGB_M_P,
@@ -267,7 +266,7 @@ B_ISOOBJ, _HIDOBJ, _UNIOBJ,         KC_LCTL, KC_LGUI, KC_LALT,                  
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,         _______, _______, _______,         _______, KC_MS_U, _______, _______,
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                           _______, _______, _______,         KC_MS_L, KC_BTN3, KC_MS_R,
  _______, _______, _______,         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                           _______, KC_VOLU, _______,         KC_BTN1, KC_MS_D, KC_BTN2, _______,
- _______, _______, _______,         _______, _______, _______,                            _______,                            _______, _______, _______,          _______,         KC_MPLY, KC_VOLD, KC_MNXT,         _ACADFT,         ACAD_QUO,
+ _______, _______, _______,         _______, _______, _______,                            _______,                            _______, _______, _______,          _______,         KC_MPLY, KC_VOLD, KC_MNXT,         _ACADFT,         ACAD_QUO),
 
 [_RED] = LAYOUT( /* Red Layer */
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         _______, _______, _______, _______,
@@ -275,7 +274,7 @@ B_ISOOBJ, _HIDOBJ, _UNIOBJ,         KC_LCTL, KC_LGUI, KC_LALT,                  
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         _______, _______, _______, _______,
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         _______, _______, _______, _______,
  
- _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,         _______, _______, _______,         _______, _______, _______, _______,
+ _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,         _______, _______, _______,          KC_ESC, _______, _______, _______,
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,         _______, _______, _______,         _______,   _3DMU, _______, _______,
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                           _______, _______, _______,           _3DML,  KC_ESC,   _3DMR,
  _______, _______, _______,         _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                           _______, _______, _______,         _______,   _3DMD, _______, _______,

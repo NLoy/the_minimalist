@@ -117,7 +117,7 @@
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
-#define TAPPING_TERM 60
+#define TAPPING_TERM 100
 #define MOUSEKEY_MOVE_DELTA 2
 #define MOUSEKEY_MAX_SPEED 4
 #define MOUSEKEY_INITIAL_SPEED 20
