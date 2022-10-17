@@ -127,12 +127,12 @@
 #define NOP_FUDGE 1 //Doesn't need a fudge factor, but is required to compile, so just keep at 1
 #define RGBLIGHT_SLEEP //If defined, the RGB lighting will be switched off when the host goes to sleep
 
-#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL //Default is RGBLIGHT_MODE_RAINBOW_SWIRL 5
-#define RGBLIGHT_DEFAULT_HUE 160 //Blue
-#define RGBLIGHT_DEFAULT_VAL 200 //100 of 255 default
-#define RGBLIGHT_DEFAULT_SAT 200 //100 of 255 default
+#define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_BREATHING //Default is RGBLIGHT_MODE_BREATHING
+#define RGBLIGHT_DEFAULT_HUE 21 //Orange
+#define RGBLIGHT_DEFAULT_VAL 255 //100 of 255 default
+#define RGBLIGHT_DEFAULT_SAT 255 //100 of 255 default
 #define RGBLIGHT_DEFAULT_SPD 200 //100 of 255 default
-#define RGBLIGHT_HUE_STEP 18
+#define RGBLIGHT_HUE_STEP 36
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 //#define RGBLIGHT_EFFECT_ALTERNATING
