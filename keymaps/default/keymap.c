@@ -387,7 +387,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define _GETSCA MEH(KC_F10)
 #define _CHASCA MEH(KC_F11)
 #define _MATSCA MEH(KC_F12)
-#define _MATPRP LSFT(KC_F1)
+#define _MATPRP LCTL(KC_F)
 #define _MATBLK LSFT(KC_F2)
 #define _PSELEC LSFT(KC_F3)
 #define _TEXTFR LSFT(KC_F4)
