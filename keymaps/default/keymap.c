@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+
 //#include "rgblight.h"
     /*
     *          A   B   C      D   E   F   G   H   I   J   K   L   M   N   O   P   Q   R      S   T   U      V   W   X   Y  
@@ -34,6 +35,9 @@ enum custom_keycodes {
     _3DMD,
     _3DML,
     _3DMR,
+    _SATTOG,
+    _SPEINC,
+    _SPEDEC,
     _ISOOBJ,
     _HIDOBJ,
     _UNIOBJ,
@@ -74,6 +78,8 @@ enum custom_keycodes {
    ACAD_QUO,  //MARKER FOR END OF CUSTOM KEYCODES ENUM
 };
 
+
+extern rgblight_config_t rgblight_config;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 
@@ -129,6 +135,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
+    case _SATTOG:
+        if (record->event.pressed) {
+            if(rgblight_config.sat != 255) {
+                rgblight_config.sat = 255;
+            } else {
+                rgblight_config.sat = 0;
+            }
+        } else {
+            // when keycode is released
+        }
+        break; 
+        break;
+
+    case _SPEINC:
+        if (record->event.pressed) {
+            rgblight_config.speed++;
+        } else {
+            // when keycode is released
+        }
+        break; 
+
+    case _SPEDEC:
+        if (record->event.pressed) {
+            rgblight_config.speed--;
+        } else {
+            // when keycode is released
+        }
+        break; 
+
     case _ACADFT:
         if (record->event.pressed) {
             SEND_STRING_DELAY("\'-", 15);
@@ -137,245 +172,44 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break; 
 
-/*
-    case _ISOOBJ:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eISOLATEOBJECTS\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _HIDOBJ:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eHIDEOBJECTS\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _UNIOBJ:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eUNISOLATEOBJECTS\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _SENFRO:
-        if (record->event.pressed) {
-            SENDSEND_STRING_DELAY("\e\eAI_DRAWORDER\nFRONT\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _SENBAC:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eAI_DRAWORDER\nBACK\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _TXTFRO:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eTEXTTOFRONT\nA\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _PSELEC:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\ePSEL\nP\n\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _M2PPNT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("M2P\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _ENDPNT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("END\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _MIDPNT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("MID\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _CENPNT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("CEN\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _GCENPT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("GCEN\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _TANPNT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("TAN\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _PERPNT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("PER\n", 15);
-        } else {
-            // when keycode is released
-        }
-        break;
-
-    case _LAYISO:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eLAYISO\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _LAYOFF:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eLAYOFF\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case  _LAYON:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eLAYON\nLAYUNISO\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _GETSCA:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eGETSC\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _CHASCA:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eCHASC\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _REVCLD:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eRCL\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _REVCLO:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eRCLO\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _BRKLIN:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eBB\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _DWUNIT:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\e_UNITS\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _MSDIST:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\e_MEASUREGEOM\n_DISTANCE\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _COPYBS:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\e_COPYBASE\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _MATPRP:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\e_MATCHPROP\n", 15);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _MATBLK:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eDYNMATCH\n", 20);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _HATCH:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\e_HATCH\n", 20);
-        } else {
-            // when keycode is released
-            }
-        break;
-
-    case _BAMASK:
-        if (record->event.pressed) {
-            SEND_STRING_DELAY("\e\eBMASK\n", 20);
-        } else {
-            // when keycode is released
-            }
-        break;  //MARKER FOR END OF CUSTOM KEYCODES DEFINITIONS
-*/
     }
     return true;
 };
 
+enum tap_dance_codes {
+    _F1_,
+    _F2_,
+    _F3_,
+    _F4_,
+    _F5_,
+    _F6_,
+    _F7_,
+    _F8_,
+    _F9_,
+    _F10,
+    _F11,
+    _F12
+};
+
+//Tap Dance Definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+    //Tap once for first, twice for second
+    [_F1_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F1),
+    [_F2_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F2),
+    [_F3_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F3),
+    [_F4_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F4),
+    [_F5_] = ACTION_TAP_DANCE_DOUBLE(KC_F5, KC_NO),
+    [_F6_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F6),
+    [_F7_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F7),
+    [_F8_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F8),
+    [_F9_] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F9),
+    [_F10] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F10),
+    [_F11] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F11),
+    [_F12] = ACTION_TAP_DANCE_DOUBLE(KC_NO, KC_F12),
+};
+
 //KEYCODE ALIAS DEFINITIONS
-#define _ISOOBJ MEH(KC_F1)
+#define _ISOOBJ LCA(KC_F6)
 #define _HIDOBJ MEH(KC_F2)
 #define _UNIOBJ MEH(KC_F3)
 #define _LAYISO MEH(KC_F4)
@@ -428,7 +262,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_1,    KC_B,    KC_C,            KC_D,    KC_E,    KC_F,    KC_G,    KC_H,    KC_I,    KC_J,    KC_K,    KC_L,    KC_M,    KC_N,    KC_O,    KC_P,    KC_Q,    KC_R,            KC_S,    KC_T,    KC_U,            KC_V,    KC_W,    KC_X,    KC_Y,
  _DWUNIT, _MSDIST, _COPYBS,           KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   RESET,
  _REVCLD, _REVCLO, _BRKLIN,        _ENDPNT, _MIDPNT,  _M2PPNT, _PERPNT, _INTPNT, _TANPNT, _CENPNT, _GCENPT, _TOGSNP, _HDGEOC, _HDDYNC,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   MO(1),
- _TEXTFR, _BAMASK, _HATCHS,          KC_DEL,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,   KC_NO,   KC_NO,         KC_PSCR, KC_SLCK, KC_PAUS,           KC_NO,   KC_NO, _GETLAY,   KC_NO,
+ _TEXTFR, _BAMASK, _HATCHS,          KC_DEL,TD(_F1_),TD(_F2_),TD(_F3_),TD(_F4_),TD(_F5_),TD(_F6_),TD(_F7_),TD(_F8_),TD(_F9_),TD(_F10),TD(_F11),TD(_F12),   KC_NO,   KC_NO,         KC_PSCR, KC_SLCK, KC_PAUS,           KC_NO,   KC_NO, _GETLAY,   KC_NO,
 
  _MATPRP, _MATBLK, _PSELEC,         KC_GESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,  KC_EQL,          KC_BSPC,          KC_INS, KC_HOME, KC_PGUP,         KC_NLCK, KC_PSLS, KC_PAST, KC_PMNS,
  _GETSCA, _CHASCA, _MATSCA,          KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC, KC_RBRC,          KC_BSLS,          KC_DEL,  KC_END, KC_PGDN,           KC_P7,   KC_P8,   KC_P9, KC_PPLS,
@@ -440,7 +274,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  QK_BOOT, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         RGB_TOG,RGB_RMOD, RGB_MOD, RGB_M_P,
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         RGB_HUI, RGB_SAI, RGB_VAI, RGB_M_R,
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         RGB_HUD, RGB_SAD, RGB_VAD,RGB_M_SW,
- _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,         _______, _______, _______, _______, 
+ _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _SPEDEC, _SPEINC,         _______, _SATTOG, _______, _______, 
 
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,         _______, _______, _______,         _______, _______, _______, _______,
  _______, _______, _______,         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,         _______, _______, _______,         _______, KC_MS_U, _______, _______,
