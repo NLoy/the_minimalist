@@ -2,7 +2,7 @@
     "keyboard_name": "the_minimalist",
     "maintainer": "NL",
     "minimalist_pins": {
-        "rows": ["LINE_PIN1", "LINE_PIN2", "LINE_PIN3", "LINE_PIN4", "LINE_PIN5", "LINE_PIN6", "LINE_PIN7", "LINE_PIN8", "LINE_PIN9"],
+        "rows": ["LINE_PIN1", "LINE_PIN2", "LINE_PIN3", "LINE_PIN4", "LINE_PIN5", "LINE_PIN6", "LINE_PIN7", "LINE_PIN8", "LINE_PIN9", "LINE_PIN51"],
         "cols": ["LINE_PIN27", "LINE_PIN28", "LINE_PIN29", "LINE_PIN30", "LINE_PIN31", "LINE_PIN32", "LINE_PIN33", "LINE_PIN34", "LINE_PIN35", "LINE_PIN36", "LINE_PIN37", "LINE_PIN38", "LINE_PIN39", "LINE_PIN40", "LINE_PIN41", "LINE_PIN14", "LINE_PIN15", "LINE_PIN16", "LINE_PIN17", "LINE_PIN18", "LINE_PIN19", "LINE_PIN20", "LINE_PIN21", "LINE_PIN22", "LINE_PIN23"]
     },
     "url": "",
@@ -219,7 +219,12 @@
                 {"label":"\u2193", "x":19.5, "y":8.5},
                 {"label":"\u2192", "x":20.5, "y":8.5},
                 {"label":"0", "x":21.75, "y":8.5, "w":2},
-                {"label":".", "x":23.75, "y":8.5}
+                {"label":".", "x":23.75, "y":8.5},
+				{"label":"White Layer", "x":6, "y":9.5, "w":0.5, "h":0.5},
+				{"label":"Yellow Layer", "x":7, "y":9.5, "w":0.5, "h":0.5},
+				{"label":"Green Layer", "x":8, "y":9.5, "w":0.5, "h":0.5},
+				{"label":"Red Layer", "x":9, "y":9.5, "w":0.5, "h":0.5},
+				{"label":"Blue Layer", "x":10, "y":9.5, "w":0.5, "h":0.5}
             ]
         }
     }

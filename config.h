@@ -48,7 +48,7 @@
 
 
 /* key matrix size */
-#define MATRIX_ROWS 9
+#define MATRIX_ROWS 10
 #define MATRIX_COLS 25
 
 #define MATRIX_ROW_PINS             \
@@ -61,7 +61,8 @@
             LINE_PIN6, /* ROW_6 */  \
             LINE_PIN7, /* ROW_7 */  \
             LINE_PIN8, /* ROW_8 */  \
-            LINE_PIN9  /* ROW_9 */  \
+            LINE_PIN9, /* ROW_9 */  \
+			LINE_PIN51 /* ROW_10*/  \
     }
 
 #define MATRIX_COL_PINS             \
