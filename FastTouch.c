@@ -1,7 +1,7 @@
 #include "FastTouch.h"
 
 
-int fastTouchRead(int  pin)
+int fastTouchRead(str pin)
 {
     int i;
     pinMode(pin, OUTPUT_OPENDRAIN);

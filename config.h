@@ -43,7 +43,7 @@
             LINE_PIN12, /* CAP_RED */ \
             LINE_PIN24, /* CAP_GRN */ \
             LINE_PIN25, /* CAP_YEL */ \
-            LINE_PIN26, /* CAP_WHI */ \
+            LINE_PIN26 /* CAP_WHI */ \
     }
 
 

@@ -28,5 +28,6 @@ NKRO_ENABLE = no            # Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 AUDIO_ENABLE = no           # Audio output
 TAP_DANCE_ENABLE = yes      # Tap Dance - double tap for alternate key
+MATRIX_LITE = yes           # Enables custom matrix
 
 SRC += matrix.c
