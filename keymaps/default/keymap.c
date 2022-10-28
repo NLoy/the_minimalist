@@ -86,15 +86,45 @@ enum custom_keycodes {
 
 extern rgblight_config_t rgblight_config;
 
-static const uint32_t cap_pins_list[5] = {  LINE_PIN11, /* CAP_BLU */
-											LINE_PIN12, /* CAP_RED */
-											LINE_PIN24, /* CAP_GRN */
-											LINE_PIN25, /* CAP_YEL */
-											LINE_PIN26  /* CAP_WHI */
-										};
+static const uint32_t cap_pins_list[5] = {LINE_PIN26, LINE_PIN25, LINE_PIN24, LINE_PIN12, LINE_PIN11};
+static const char cap_pins_colors[5][3] = {"WHI",      "YEL",      "GRN",      "RED",      "BLU"};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+
+    case _TESTCAP:
+        if (record->event.pressed) {
+            for (int count = 0; count < 5; ++count)
+            {
+                int pin = cap_pins_list[count];
+                //char pin_color[3] = cap_pins_colors[count];
+                int pin_cap_value = 99;
+                pin_cap_value = pin_cap_value;
+                ATOMIC_BLOCK_FORCEON{
+                    setPinOutputOpenDrain(pin);
+                    writePinLow(pin);
+                    static uint16_t key_timer;
+                    key_timer = timer_read();
+                    while (timer_elapsed(key_timer) < 50) {} //attempt at a 1 microsecond delay
+                    setPinInputHigh(pin);
+                    for (int i = 0; i <64; ++i)
+                    {
+                        if (readPin(pin) != 0)
+                        {
+                            pin_cap_value = i;
+                            break;
+                        }
+                    }
+                }
+                char buffer [50];
+                sprintf(buffer, "%.3s: %02d   ", cap_pins_colors[count], pin_cap_value);
+                send_string(buffer);
+            }
+            send_string("\n");
+        } else {
+            // when keycode is released
+        }
+        break;
 
     case _3DMU:
         if (record->event.pressed) {
@@ -183,39 +213,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break; 
-
-	case _TESTCAP:
-		if (record->event.pressed) {
-			for (int count = 0; count < 5; ++count)
-			{
-				int pin = cap_pins_list[count];
-				int pin_cap_value = 0;
-				pin_cap_value = pin_cap_value;
-				ATOMIC_BLOCK_FORCEON{
-					setPinOutputOpenDrain(pin);
-					writePinLow(pin);
-					static uint16_t key_timer;
-					key_timer = timer_read();
-					while (timer_elapsed(key_timer) < 100) {} //attempt at a 1 microsecond delay
-					setPinInputHigh(pin);
-					for (int i = 0; i <64; ++i)
-					{
-						if (readPin(pin) != 0)
-						{
-							pin_cap_value = i;
-							break;
-						}
-					}
-				}
-				char buffer [50];
-				sprintf(buffer, "%d", pin_cap_value);
-				send_string(buffer);
-			}
-        } else {
-            // when keycode is released
-        }
-		break;
-		
+        
     }
     return true;
 };
