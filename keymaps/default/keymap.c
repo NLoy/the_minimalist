@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "matrix.h"
+#include "fastTouch.h"
 
 
 //#include "rgblight.h"
@@ -85,7 +86,12 @@ enum custom_keycodes {
 
 extern rgblight_config_t rgblight_config;
 
-static const uint32_t cap_pins_list[5] = CAP_PINS;
+static const uint32_t cap_pins_list[5] = {  LINE_PIN11, /* CAP_BLU */
+											LINE_PIN12, /* CAP_RED */
+											LINE_PIN24, /* CAP_GRN */
+											LINE_PIN25, /* CAP_YEL */
+											LINE_PIN26  /* CAP_WHI */
+										};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -180,9 +186,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 	case _TESTCAP:
 		if (record->event.pressed) {
-			for (auto pin_t : cap_pins_list) {
-				int pin_cap_value = fastTouchRead(pin_t);
-				send_string(pin_cap_value);
+			for (int count = 0; count < 5; ++count)
+			{
+				int pin = cap_pins_list[count];
+				int pin_cap_value = 0;
+				pin_cap_value = pin_cap_value;
+				ATOMIC_BLOCK_FORCEON{
+					setPinOutputOpenDrain(pin);
+					writePinLow(pin);
+					static uint16_t key_timer;
+					key_timer = timer_read();
+					while (timer_elapsed(key_timer) < 100) {} //attempt at a 1 microsecond delay
+					setPinInputHigh(pin);
+					for (int i = 0; i <64; ++i)
+					{
+						if (readPin(pin) != 0)
+						{
+							pin_cap_value = i;
+							break;
+						}
+					}
+				}
+				char buffer [50];
+				sprintf(buffer, "%d", pin_cap_value);
+				send_string(buffer);
 			}
         } else {
             // when keycode is released
