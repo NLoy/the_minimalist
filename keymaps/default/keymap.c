@@ -97,8 +97,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             for (int count = 0; count < 5; ++count)
             {
                 int pin = cap_pins_list[count];
-                //char pin_color[3] = cap_pins_colors[count];
                 int pin_cap_value = 99;
+                int pin_reading = 0;
                 pin_cap_value = pin_cap_value;
                 ATOMIC_BLOCK_FORCEON{
                     setPinOutputOpenDrain(pin);
@@ -107,9 +107,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     key_timer = timer_read();
                     while (timer_elapsed(key_timer) < 50) {} //attempt at a 1 microsecond delay
                     setPinInputHigh(pin);
-                    for (int i = 0; i <64; ++i)
+                    for (int i = 0; i <255; ++i)
                     {
-                        if (readPin(pin) != 0)
+                        pin_reading = readPin(pin);
+                        if (pin_reading != 0)
                         {
                             pin_cap_value = i;
                             break;
@@ -117,7 +118,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     }
                 }
                 char buffer [50];
-                sprintf(buffer, "%.3s: %02d   ", cap_pins_colors[count], pin_cap_value);
+                sprintf(buffer, "%.3s: %03di:%03dv  ", cap_pins_colors[count], pin_cap_value, pin_reading);
                 send_string(buffer);
             }
             send_string("\n");
