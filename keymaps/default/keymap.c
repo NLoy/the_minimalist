@@ -105,7 +105,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     writePinLow(pin);
                     static uint16_t key_timer;
                     key_timer = timer_read();
-                    while (timer_elapsed(key_timer) < 50) {} //attempt at a 1 microsecond delay
+                    while (timer_elapsed(key_timer) < 1) {} //attempt at a 1 microsecond delay
                     setPinInputHigh(pin);
                     for (int i = 0; i <255; ++i)
                     {
@@ -120,6 +120,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 char buffer [50];
                 sprintf(buffer, "%.3s: %03di:%03dv  ", cap_pins_colors[count], pin_cap_value, pin_reading);
                 send_string(buffer);
+                setPinOutputOpenDrain(pin);
+                writePinLow(pin);
             }
             send_string("\n");
         } else {
