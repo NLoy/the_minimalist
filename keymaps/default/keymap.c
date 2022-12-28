@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "matrix.h"
-#include "fastTouch.h"
+//#include "fastTouch.h"
 
 
 //#include "rgblight.h"
@@ -84,15 +84,16 @@ enum custom_keycodes {
 };
 
 
+/*
 extern rgblight_config_t rgblight_config;
 
 static const uint32_t cap_pins_list[5] = {LINE_PIN26, LINE_PIN25, LINE_PIN24, LINE_PIN12, LINE_PIN11};
 static const char cap_pins_colors[5][3] = {"WHI",      "YEL",      "GRN",      "RED",      "BLU"};
-
+*/
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 
-    case _TESTCAP:
+    /*case _TESTCAP:
         if (record->event.pressed) {
             for (int count = 0; count < 5; ++count)
             {
@@ -128,7 +129,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode is released
         }
         break;
-
+*/
     case _3DMU:
         if (record->event.pressed) {
             register_code(KC_LSFT);
@@ -305,7 +306,7 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT( /* Base Layer */
     KC_1,    KC_B,    KC_C,            KC_D,    KC_E,    KC_F,    KC_G,    KC_H,    KC_I,    KC_J,    KC_K,    KC_L,    KC_M,    KC_N,    KC_O,    KC_P,    KC_Q,    KC_R,            KC_S,    KC_T,    KC_U,            KC_V,    KC_W,    KC_X,    KC_Y,
- _DWUNIT, _MSDIST, _COPYBS,       _TESTCAP,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   RESET,
+ _DWUNIT, _MSDIST, _COPYBS,           KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   RESET,
  _REVCLD, _REVCLO, _BRKLIN,        _ENDPNT, _MIDPNT,  _M2PPNT, _PERPNT, _INTPNT, _TANPNT, _CENPNT, _GCENPT, _TOGSNP, _HDGEOC, _HDDYNC,   KC_NO,   KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,           KC_NO,   KC_NO,   KC_NO,   MO(1),
  _TEXTFR, _BAMASK, _HATCHS,          KC_DEL,TD(_F1_),TD(_F2_),TD(_F3_),TD(_F4_),TD(_F5_),TD(_F6_),TD(_F7_),TD(_F8_),TD(_F9_),TD(_F10),TD(_F11),TD(_F12),   KC_NO,   KC_NO,         KC_PSCR, KC_SLCK, KC_PAUS,           KC_NO,   KC_NO, _GETLAY,   KC_NO,
 
