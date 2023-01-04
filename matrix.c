@@ -1,35 +1,28 @@
 #include "matrix.h"
 #include "quantum.h"
-#define IRQ_PIN LINE_PIN26
-#define MY_I2C_ADDRESS (0x5A << 1)
 
-    
-    
-void i2c_init(void) {
-    setPinInput(LINE_PIN24);
-    setPinInput(LINE_PIN25);
-    wait_ms(10);
-    
-    palSetPadMode(GPIOB, 6, PAL_MODE_ALTERNATE(4)
-    
-    
-
-}
-
-i2c_status_t i2c_start(uint8_t address, uint16_t timeout)
-
+static const char cap_pins_colors[5][3]  = {"WHI",       "YEL",      "GRN",      "RED",      "BLU"};
+static const uint32_t cap_pins_list[5]   = {LINE_PIN26,  LINE_PIN25, LINE_PIN24, LINE_PIN12, LINE_PIN11};
+static const uint32_t cap_pins_values[5] = {0b100000000, 0b10000000, 0b1000000,  0b100000,   0b10000};
 
 void matrix_init_custom(void) {
-    
-    setPinInputHigh(IRQ_PIN); //Enable pin as input with builtin pull-up resister    
+    for (int count = 0; count <5; ++count)
+    {        
+        int pin = cap_pins_list[count];
+        setPinInputLow(pin); //Enable pin as input with builtin pull-down resister
 }
+
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool matrix_has_changed = false;
-    if(readPin(IRQ_PIN != 1){
-        
+    for (int count = 0; count <5; ++count)
+    {        
+        int pin = cap_pins_list[count];
+        bool reading = digitalRead(pin);
+        if (reading == HIGH)
+        {
+            current_matrix[9] |= cap_pins_values[count];
+        }
     }
-    
-    // TODO: add matrix scanning routine here
     return matrix_has_changed;
 }
