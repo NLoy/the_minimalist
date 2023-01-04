@@ -18,7 +18,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     for (int count = 0; count <5; ++count)
     {        
         int pin = cap_pins_list[count];
-        bool reading = digitalRead(pin);
+        bool reading = readPin(pin);
         if (reading == HIGH)
         {
             current_matrix[9] |= cap_pins_values[count];

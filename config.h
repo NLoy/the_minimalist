@@ -35,7 +35,7 @@
 #define PRODUCT         keyboard
 
 
-/*
+
 #define CAP_PINS                      \
     {                                 \
             LINE_PIN11, /* CAP_BLU */ \
@@ -44,7 +44,7 @@
             LINE_PIN25, /* CAP_YEL */ \
             LINE_PIN26  /* CAP_WHI */ \
     }
-*/
+
 
 /* key matrix size */
 #define MATRIX_ROWS 10
