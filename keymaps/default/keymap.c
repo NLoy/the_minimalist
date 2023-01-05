@@ -2,8 +2,8 @@
 #include "matrix.h"
 //#include "fastTouch.h"
 
-
 //#include "rgblight.h"
+
     /*
     *          A   B   C      D   E   F   G   H   I   J   K   L   M   N   O   P   Q   R      S   T   U      V   W   X   Y  
     *        ┌───┬───┬───┬──┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬──┬───┬───┬───┬──┬───┬───┬───┬───┐
@@ -85,12 +85,10 @@ enum custom_keycodes {
 };
 
 
-/*
+
 extern rgblight_config_t rgblight_config;
 
-static const uint32_t cap_pins_list[5] = {LINE_PIN26, LINE_PIN25, LINE_PIN24, LINE_PIN12, LINE_PIN11};
-static const char cap_pins_colors[5][3] = {"WHI",      "YEL",      "GRN",      "RED",      "BLU"};
-*/
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 
