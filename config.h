@@ -28,10 +28,10 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0xFADE
+#define VENDOR_ID       0xFADE
+#define PRODUCT_ID      0xEDDA
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    qmkbuilder
+#define MANUFACTURER    FADE-EDDA
 #define PRODUCT         keyboard
 
 
@@ -116,6 +116,7 @@
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
+#define DEBUG_MATRIX_SCAN_RATE
 
 #define TAPPING_TERM 150
 #define MOUSEKEY_MOVE_DELTA 2
